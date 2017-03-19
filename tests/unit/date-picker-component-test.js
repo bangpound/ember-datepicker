@@ -231,7 +231,7 @@ test("it creates UTC timestamp when `utc: true`", function(assert) {
 
     // without utc = true, expect timestamp that differs from UTC unix timestamp
     // by the current timezoneOffset in seconds
-    assert.equal(component.get('date'), unixTimestamp2000 + (new Date()).getTimezoneOffset()*60,
+    assert.equal(component.get('date'), unixTimestamp2000 + (new Date('2000-01-01')).getTimezoneOffset()*60,
       "outputs timestamp that differs by timezoneOffset when utc = false");
 
     component.set('utc', true);
