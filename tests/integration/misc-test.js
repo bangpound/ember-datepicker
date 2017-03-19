@@ -19,21 +19,21 @@ moduleForComponent('date-picker', 'ember-cli-datepicker integration', {
   }
 });
 
-test("it shows the picker on input focus, then hides it after click outside", function() {
-  expect(3);
+test("it shows the picker on input focus, then hides it after click outside", function(assert) {
+  assert.expect(3);
   component = this.subject();
 
   // initial render
   this.$();
 
-  equal($('.pika-single').hasClass('is-hidden'), true, "date picker is initially hidden");
+  assert.equal($('.pika-single').hasClass('is-hidden'), true, "date picker is initially hidden");
 
   click(this.$());
   andThen(function() {
-    equal($('.pika-single').hasClass('is-hidden'), false, "date picker is visible");
+    assert.equal($('.pika-single').hasClass('is-hidden'), false, "date picker is visible");
     click(document.body);
   });
   andThen(function() {
-    equal($('.pika-single').hasClass('is-hidden'), true, "date picker is hidden again");
+    assert.equal($('.pika-single').hasClass('is-hidden'), true, "date picker is hidden again");
   });
 });
