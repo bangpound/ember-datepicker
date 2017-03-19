@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-datepicker",
   "devDependencies": {
-    "pikaday": "~1.2.0",
-    "moment": "~2.8.3"
+    "pikaday": "^1.2.0",
+    "moment": "^2.8.3"
   }
 }
