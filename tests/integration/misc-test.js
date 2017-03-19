@@ -6,6 +6,7 @@ import { test, moduleForComponent } from 'ember-qunit';
 var App, component;
 
 moduleForComponent('date-picker', 'ember-cli-datepicker integration', {
+  unit: true,
   setup: function() {
     App = startApp();
   },
