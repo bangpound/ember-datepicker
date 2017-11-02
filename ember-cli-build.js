@@ -3,6 +3,7 @@
 
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
+module.exports = function(defaults) {
 var app = new EmberAddon({
   vendorFiles: {
     'handlebars.js': null
@@ -26,4 +27,5 @@ app.import(app.bowerDirectory + '/moment/moment.js');
 app.import(app.bowerDirectory + '/pikaday/pikaday.js');
 app.import(app.bowerDirectory + '/pikaday/css/pikaday.css');
 
-module.exports = app.toTree();
+return app.toTree();
+};

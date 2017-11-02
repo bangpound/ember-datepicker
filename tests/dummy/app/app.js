@@ -1,9 +1,11 @@
 import Ember from 'ember';
-import Resolver from 'ember/resolver';
-import loadInitializers from 'ember/load-initializers';
+import Resolver from 'ember-resolver';
+import loadInitializers from 'ember-load-initializers';
 import config from './config/environment';
 
-Ember.MODEL_FACTORY_INJECTIONS = true;
+if (parseFloat(Ember.VERSION) < 2.13) {
+  Ember.MODEL_FACTORY_INJECTIONS = true;
+}
 
 var App = Ember.Application.extend({
   modulePrefix: config.modulePrefix,
@@ -11,6 +13,6 @@ var App = Ember.Application.extend({
   Resolver: Resolver
 });
 
-loadInitializers(App, config.modulePrefix);
+loadInitializers(App);
 
 export default App;

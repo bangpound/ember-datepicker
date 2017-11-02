@@ -1,5 +1,7 @@
 import Em from 'ember';
 
+const { scheduleOnce } = Em.run;
+
 export default Em.TextField.extend({
   /**
    * Component settings defaults
@@ -81,11 +83,13 @@ export default Em.TextField.extend({
      });
     picker = new window.Pikaday(pickerOptions);
 
-    // store Pikaday element for later access
-    this.set("_picker", picker);
+    scheduleOnce('afterRender', this, function() {
+      // store Pikaday element for later access
+      this.set("_picker", picker);
 
-    // initially sync Pikaday with external `date` value
-    this.setDate();
+      // initially sync Pikaday with external `date` value
+      this.setDate();
+    });
   },
   /**
    * Set the date on the controller.
